@@ -1,0 +1,207 @@
+\doxysection{VDinamico.\+h}
+\hypertarget{_v_dinamico_8h_source}{}\label{_v_dinamico_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ admin\ on\ 18/09/2026.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ VDINAMICO\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ VDINAMICO\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <climits>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }VDinamico\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ tamal;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ tamaf;}
+\DoxyCodeLine{00019\ \ \ \ \ T\ *dato;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ calcularPotencia2(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ tamaño)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tamaño\ ==\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ potencia\ =\ 1;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (potencia\ <\ tamaño)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ potencia\ *=\ 2;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ potencia;}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ VDinamico();}
+\DoxyCodeLine{00030\ \ \ \ \ VDinamico(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ tamlog,\ \textcolor{keyword}{const}\ T\ \&datoInicial);}
+\DoxyCodeLine{00031\ \ \ \ \ VDinamico(\textcolor{keyword}{const}\ VDinamico<T>\&\ origen);}
+\DoxyCodeLine{00032\ \ \ \ \ VDinamico(\textcolor{keyword}{const}\ VDinamico<T>\&\ origen,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ posicionInicial,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ numElementos);}
+\DoxyCodeLine{00033\ \ \ \ \ \string~VDinamico();}
+\DoxyCodeLine{00034\ \ \ \ \ VDinamico<T>\&\ operator=(\textcolor{keyword}{const}\ VDinamico<T>\&\ orig);}
+\DoxyCodeLine{00035\ \ \ \ \ T\&\ operator[](\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pos);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ insertar(\textcolor{keyword}{const}\ T\&\ nuevoDato,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pos\ =\ UINT\_MAX);}
+\DoxyCodeLine{00037\ \ \ \ \ T\ borrar(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pos\ =\ UINT\_MAX);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ ordenar();}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ busquedaDicotomica(T\&\ datoABuscar);}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ tamlog()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00044\ VDinamico<T>::VDinamico()\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ tamaf\ =\ 1;}
+\DoxyCodeLine{00046\ \ \ \ \ tamal\ =\ 0;}
+\DoxyCodeLine{00047\ \ \ \ \ dato\ =\ \textcolor{keyword}{new}\ T[tamaf];}
+\DoxyCodeLine{00048\ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00051\ VDinamico<T>::VDinamico(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ tamlog,\ \textcolor{keyword}{const}\ T\ \&datoInicial)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ this-\/>tamal\ =\ tamlog;}
+\DoxyCodeLine{00053\ \ \ \ \ this-\/>tamaf\ =\ calcularPotencia2(tamlog);}
+\DoxyCodeLine{00054\ \ \ \ \ dato\ =\ \textcolor{keyword}{new}\ T[tamaf];}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ tamlog;\ c++)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ dato[c]\ =\ datoInicial;}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00061\ VDinamico<T>::VDinamico(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_v_dinamico}{VDinamico<T>}}\&\ origen)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ tamal\ =\ origen.tamal;}
+\DoxyCodeLine{00063\ \ \ \ \ tamaf\ =\ origen.tamaf;}
+\DoxyCodeLine{00064\ \ \ \ \ dato\ =\ \textcolor{keyword}{new}\ T[tamaf];}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ tamal;\ c++)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ dato[c]\ =\ origen.dato[c];}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00071\ VDinamico<T>::VDinamico(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_v_dinamico}{VDinamico<T>}}\&\ origen,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ posicionInicial,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ numElementos)\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{if}\ (posicionInicial\ +\ numElementos\ >\ origen.tamal)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Copia\ parcial\ fuera\ de\ rango."{}});}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ tamal\ =\ numElementos;}
+\DoxyCodeLine{00076\ \ \ \ \ tamaf\ =\ calcularPotencia2(tamal);}
+\DoxyCodeLine{00077\ \ \ \ \ dato\ =\ \textcolor{keyword}{new}\ T[tamaf];}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ tamal;\ c++)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ dato[c]\ =\ origen.dato[posicionInicial\ +\ c];}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00084\ VDinamico<T>::\string~VDinamico()\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{delete}[]\ dato;}
+\DoxyCodeLine{00086\ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00089\ \doxymbox{\hyperlink{class_v_dinamico}{VDinamico<T>}}\&\ VDinamico<T>::operator=(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_v_dinamico}{VDinamico<T>}}\&\ orig)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&orig)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ dato;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ tamaf\ =\ orig.tamaf;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ tamal\ =\ orig.tamal;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ dato\ =\ \textcolor{keyword}{new}\ T[tamaf];}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ tamal;\ c++)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ dato[c]\ =\ orig.dato[c];}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00100\ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00103\ T\&\ VDinamico<T>::operator[](\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pos)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ >=\ tamal)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Posicion\ fuera\ de\ rango\ de\ operator[]"{}});}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{return}\ dato[pos];}
+\DoxyCodeLine{00108\ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00111\ \textcolor{keywordtype}{void}\ VDinamico<T>::insertar(\textcolor{keyword}{const}\ T\&\ nuevoDato,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pos)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ ==\ UINT\_MAX)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ pos\ =\ tamal;\ \textcolor{comment}{//\ Se\ inserta\ al\ final}}
+\DoxyCodeLine{00114\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pos\ >\ tamal)\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Posicion\ de\ insercion\ fuera\ de\ los\ limites\ del\ vector"{}});}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//\ Si\ se\ necesita,\ se\ aumenta\ el\ tamaño\ fisico}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{if}\ (tamal\ ==\ tamaf)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ tamaf\ =\ tamaf\ *\ 2;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ T\ *vaux\ =\ \textcolor{keyword}{new}\ T[tamaf];}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ tamal;\ i++)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ vaux[i]\ =\ dato[i];}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ dato;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ dato\ =\ vaux;}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ Desplaza\ hacia\ la\ derecha\ para\ hacer\ hueco}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ tamal;\ i\ >\ pos;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ dato[i]\ =\ dato[i\ -\/\ 1];}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ dato[pos]\ =\ nuevoDato;}
+\DoxyCodeLine{00135\ \ \ \ \ tamal++;}
+\DoxyCodeLine{00136\ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00139\ T\ VDinamico<T>::borrar(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pos)\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordflow}{if}\ (tamal\ ==\ 0)\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::underflow\_error(\textcolor{stringliteral}{"{}El\ vector\ esta\ vacio."{}});}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ ==\ UINT\_MAX)\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ pos\ =\ tamal\ -\/\ 1;\ \textcolor{comment}{//\ Borra\ el\ ultimo}}
+\DoxyCodeLine{00146\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pos\ >=\ tamal)\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}Posicion\ de\ borrado\ fuera\ de\ rango."{}});}
+\DoxyCodeLine{00148\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ T\ elementoBorrado\ =\ dato[pos];}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{comment}{//\ Desplaza\ hacia\ la\ izquierda\ para\ tapar\ el\ hueco}}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ pos;\ i\ <\ tamal\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ dato[i]\ =\ dato[i\ +\ 1];}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ tamal-\/-\/;}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{comment}{//\ Reduce\ tamaño\ físico\ si\ tamal\ *\ 3\ <\ tamaf}}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordflow}{if}\ (tamal\ *\ 3\ <\ tamaf\ \&\&\ tamaf\ >\ 1)\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ tamaf\ =\ tamaf\ /\ 2;}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ T\ *vaux\ =\ \textcolor{keyword}{new}\ T[tamaf];}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ tamal;\ i++)\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ vaux[i]\ =\ dato[i];}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ dato;}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ dato\ =\ vaux;}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordflow}{return}\ elementoBorrado;}
+\DoxyCodeLine{00170\ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00173\ \textcolor{keywordtype}{void}\ VDinamico<T>::ordenar()\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ std::sort(dato,\ dato\ +\ tamal);}
+\DoxyCodeLine{00175\ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00179\ \textcolor{keywordtype}{int}\ VDinamico<T>::busquedaDicotomica(T\&\ datoABuscar)\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordtype}{int}\ inf\ =\ 0;}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordtype}{int}\ sup\ =\ tamal\ -\/\ 1;}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{int}\ curIn;}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordflow}{while}\ (inf\ <=\ sup)\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ curIn\ =\ (inf\ +\ sup)\ /\ 2;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dato[curIn]\ ==\ datoABuscar)\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ curIn;}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (dato[curIn]\ <\ datoABuscar)\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ inf\ =\ curIn\ +\ 1;}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ sup\ =\ curIn\ -\/\ 1;}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00193\ \ \ \ \ \}}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00195\ \}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00198\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ VDinamico<T>::tamlog()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordflow}{return}\ tamal;}
+\DoxyCodeLine{00200\ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VDINAMICO\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,36 @@
+\doxysection{Control\+Parques.\+h}
+\hypertarget{_control_parques_8h_source}{}\label{_control_parques_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ admin\ on\ 09/10/2026.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ PRACTICA2\_CONTROLPARQUES\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ PRACTICA2\_CONTROLPARQUES\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}VDinamico.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Especie.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}ListaDEnlazada.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Parque.h"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }ControlParques\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ \doxymbox{\hyperlink{class_v_dinamico}{VDinamico<Especie>}}\ vEspeciesTotales;}
+\DoxyCodeLine{00016\ \ \ \ \ \doxymbox{\hyperlink{class_lista_d_enlazada}{ListaDEnlazada<Parque>}}\ lParques;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ ControlParques(std::string\ rutaEspecies,\ std::string\ rutaParques);}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ asignarEspecieParque(\doxymbox{\hyperlink{class_especie}{Especie}}\ e,\doxymbox{\hyperlink{class_parque}{Parque}}\ p);}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ contarEspecieParque(std::string\ ncomun);}
+\DoxyCodeLine{00021\ \ \ \ \ \doxymbox{\hyperlink{class_v_dinamico}{VDinamico<Especie*>}}\ listadoEspecieSubNbre(std::string\ cadena);}
+\DoxyCodeLine{00022\ \ \ \ \ \doxymbox{\hyperlink{class_parque}{Parque}}*\ buscarParque(std::string\ nbre\_parque);}
+\DoxyCodeLine{00023\ \ \ \ \ \doxymbox{\hyperlink{class_especie}{Especie}}*\ buscarEspecie(std::string\ nbre\_parque);}
+\DoxyCodeLine{00024\ \ \ \ \ \doxymbox{\hyperlink{class_v_dinamico}{VDinamico<Especie>}}\ \&get\_varieties();}
+\DoxyCodeLine{00025\ \ \ \ \ \doxymbox{\hyperlink{class_lista_d_enlazada}{ListaDEnlazada<Parque>}}\ \&get\_parks();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ eliminarParque(std::string\ nombre);}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ eliminarEspecie(std::string\ nombre);}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

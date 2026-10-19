@@ -1,0 +1,103 @@
+\doxysection{Especie.\+h}
+\hypertarget{_especie_8h_source}{}\label{_especie_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Portatil\ on\ 25/09/2026.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ PRÁCTICA\_1\_VECTOR\_DINÁMICO\_20260918\_ESPECIE\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ PRÁCTICA\_1\_VECTOR\_DINÁMICO\_20260918\_ESPECIE\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{enum}\ TipoPlanta\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ VACIO,\ ARBUSTO,\ CONIFERA,\ PALMACEA,\ HERB\_PERENNES,\ FRONDOSA,TAPIZANTE\_TREPADORA,}
+\DoxyCodeLine{00013\ \ \ \ \ CACTACEA\_SUCULENTA,\ SUBTROPICAL\_TROPICAL,\ HERB\_ANUAL,\ HERB\_ANUALES}
+\DoxyCodeLine{00014\ \};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }Especie\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ std::string\ \_cod\_especie;}
+\DoxyCodeLine{00019\ \ \ \ \ std::string\ \_nbre\_comun;}
+\DoxyCodeLine{00020\ \ \ \ \ std::string\ \_nbre\_cientif;}
+\DoxyCodeLine{00021\ \ \ \ \ TipoPlanta\ \_tipo\_planta;}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ Especie()\{\}}
+\DoxyCodeLine{00024\ \ \ \ \ Especie(\textcolor{keyword}{const}\ std::string\&\ cod\_especie,\ \textcolor{keyword}{const}\ std::string\&\ nbre\_comun,\ \textcolor{keyword}{const}\ std::string\&\ nbre\_cientif,\ TipoPlanta\ tipo\_planta)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \_cod\_especie\ =\ cod\_especie;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \_nbre\_comun\ =\ nbre\_comun;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \_nbre\_cientif\ =\ nbre\_cientif;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \_tipo\_planta\ =\ tipo\_planta;}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ std::string\ get\_codigo\_especie()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_cod\_especie;}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ std::string\ get\_nombre\_comun()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_nbre\_comun;}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \ \ std::string\ get\_nombre\_cientifico()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_nbre\_cientif;}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ TipoPlanta\ get\_tipo\_planta()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_tipo\_planta;}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_codigo\_especie(\textcolor{keyword}{const}\ std::string\&\ cod\_especie)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \_cod\_especie\ =\ cod\_especie;}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_nombre\_comun(\textcolor{keyword}{const}\ std::string\&\ nbre\_comun)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \_nbre\_comun\ =\ nbre\_comun;}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_nombre\_cientifico(\textcolor{keyword}{const}\ std::string\&\ nbre\_cientif)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \_nbre\_cientif\ =\ nbre\_cientif;}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ std::string\ tipoPlantaATexto(TipoPlanta\ tipoPlanta)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (tipoPlanta)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ VACIO:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Sin\ tipo\ de\ especie"{}};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ARBUSTO:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Arbusto"{}};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ CONIFERA:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Conifera"{}};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ PALMACEA:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Palmacea"{}};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ HERB\_PERENNES:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Herbacea\ perenne"{}};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ FRONDOSA:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Frondosa"{}};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ TAPIZANTE\_TREPADORA:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Tapizante\ o\ trepadora"{}};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ CACTACEA\_SUCULENTA:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Catacea\ o\ suculenta"{}};}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SUBTROPICAL\_TROPICAL:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Subtropical\ o\ tropical"{}};}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ HERB\_ANUAL:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Herbacea\ anual"{}};}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ HERB\_ANUALES:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Herbaceas\ anuales"{}};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Sin\ identificar"{}};}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(Especie\ \&e)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_cod\_especie==e.get\_codigo\_especie())\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ Especie\ \&e)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_nbre\_cientif!=e.get\_nombre\_cientifico())\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator<(Especie\ \&e)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_cod\_especie<e.get\_codigo\_especie())\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ mostrarInfo()\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Codigo\ especie:\ "{}}<<\_cod\_especie<<std::endl;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Nombre\ especie:\ "{}}<<\_nbre\_comun<<std::endl;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Nombre\ cientifico:\ "{}}<<\_nbre\_cientif<<std::endl;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Tipo\ planta:\ "{}}<<\_tipo\_planta<<std::endl;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

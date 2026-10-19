@@ -1,0 +1,36 @@
+\doxysection{Parque.\+h}
+\hypertarget{_parque_8h_source}{}\label{_parque_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Portatil\ on\ 09/10/2026.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ PRACTICA2\_PARQUE\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ PRACTICA2\_PARQUE\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Especie.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}VDinamico.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }Parque\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ \_cod\_parque;}
+\DoxyCodeLine{00015\ \ \ \ \ std::string\ \_nbre\_parque;}
+\DoxyCodeLine{00016\ \ \ \ \ \doxymbox{\hyperlink{class_v_dinamico}{VDinamico<Especie*>}}\ vEspecies;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ Parque();}
+\DoxyCodeLine{00019\ \ \ \ \ Parque(\textcolor{keywordtype}{int}\ cod\_parque,\ std::string\ nbre\_parque);}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ insertaEspecie(\doxymbox{\hyperlink{class_especie}{Especie}}\ *esp);}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ existeNbreCom(std::string\ ncomun);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ existeNbreCie(std::string\ ncient);}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_cod\_parque();}
+\DoxyCodeLine{00024\ \ \ \ \ std::string\ get\_nbre\_parque();}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_nbre\_parque(std::string\ \textcolor{keyword}{const}\ nbre\_parque);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_cod\_parque(\textcolor{keywordtype}{int}\ \textcolor{keyword}{const}\ cod\_parque);}
+\DoxyCodeLine{00027\ \ \ \ \ \doxymbox{\hyperlink{class_v_dinamico}{VDinamico<Especie*>}}\ \&get\_contains();}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

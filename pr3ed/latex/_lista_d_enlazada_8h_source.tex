@@ -1,0 +1,189 @@
+\doxysection{Lista\+DEnlazada.\+h}
+\hypertarget{_lista_d_enlazada_8h_source}{}\label{_lista_d_enlazada_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Nitropc\ on\ 05/10/2026.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ PRACTICA2\_LISTADENLAZADA\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ PRACTICA2\_LISTADENLAZADA\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <Nodo.h>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Iterador.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_lista_d_enlazada}{ListaDEnlazada}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }ListaDEnlazada\{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}*cabecera;}
+\DoxyCodeLine{00016\ \ \ \ \ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}*cola;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ ListaDEnlazada();}
+\DoxyCodeLine{00019\ \ \ \ \ ListaDEnlazada(\textcolor{keyword}{const}\ ListaDEnlazada<T>\ \&Lista);}
+\DoxyCodeLine{00020\ \ \ \ \ ListaDEnlazada<T>\ \&operator\ =\ (ListaDEnlazada<T>\ \&lista);}
+\DoxyCodeLine{00021\ \ \ \ \ T\&\ inicio();}
+\DoxyCodeLine{00022\ \ \ \ \ T\&\ fin();}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ insertaInicio(\textcolor{keyword}{const}\ T\ \&dato);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ insertaFin(\textcolor{keyword}{const}\ T\ \&dato);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ inserta(\doxymbox{\hyperlink{class_iterador}{Iterador<T>}}\ \&i,\textcolor{keyword}{const}\ T\ \&dato);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ borraInicio();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ borraFin();}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ borra(\doxymbox{\hyperlink{class_iterador}{Iterador<T>}}\ \&i);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ tam();}
+\DoxyCodeLine{00030\ \ \ \ \ ListaDEnlazada<T>\&\ concatena(\textcolor{keyword}{const}\ ListaDEnlazada<T>\ lista);}
+\DoxyCodeLine{00031\ \ \ \ \ \string~ListaDEnlazada();}
+\DoxyCodeLine{00032\ \ \ \ \ \doxymbox{\hyperlink{class_iterador}{Iterador<T>}}\ iterador();}
+\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00036\ ListaDEnlazada<T>::ListaDEnlazada()\{}
+\DoxyCodeLine{00037\ \ \ \ \ cabecera\ =\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00038\ \ \ \ \ cola\ =\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00039\ \}}
+\DoxyCodeLine{00040\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00041\ ListaDEnlazada<T>::ListaDEnlazada(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_lista_d_enlazada}{ListaDEnlazada<T>}}\ \&Lista)\{}
+\DoxyCodeLine{00042\ \ \ \ \ cabecera=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00043\ \ \ \ \ cola=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00044\ \ \ \ \ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}\ *actual\ =\ Lista.cabecera;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{while}(actual!=\textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ this-\/>insertaFin(actual-\/>dato);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ actual\ =\ actual-\/>sig;}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \}}
+\DoxyCodeLine{00050\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00051\ \doxymbox{\hyperlink{class_lista_d_enlazada}{ListaDEnlazada<T>}}\&\ \doxymbox{\hyperlink{class_lista_d_enlazada}{ListaDEnlazada<T>::operator\ =\ }}(\doxymbox{\hyperlink{class_lista_d_enlazada}{ListaDEnlazada<T>}}\ \&lista)\{}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&lista)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{while}\ (cabecera\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ borraInicio();}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}\ *actual\ =\ lista.cabecera;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{while}\ (actual\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ this-\/>insertaFin(actual-\/>dato);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ actual\ =\ actual-\/>sig;}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00062\ \}}
+\DoxyCodeLine{00063\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00064\ T\&\ ListaDEnlazada<T>::inicio()\{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{return}\ cabecera-\/>dato;}
+\DoxyCodeLine{00066\ \}}
+\DoxyCodeLine{00067\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00068\ T\&\ ListaDEnlazada<T>::fin()\{}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{return}\ cola-\/>dato;}
+\DoxyCodeLine{00070\ \}}
+\DoxyCodeLine{00071\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ ListaDEnlazada<T>::insertaInicio(\textcolor{keyword}{const}\ T\&\ dato)\{}
+\DoxyCodeLine{00073\ \ \ \ \ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}\ *nuevo;}
+\DoxyCodeLine{00074\ \ \ \ \ nuevo\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}(dato,\ cabecera,\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{if}\ (cola\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ cola\ =\ nuevo;}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (cabecera\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ cabecera-\/>ant\ =\ nuevo;}
+\DoxyCodeLine{00079\ \ \ \ \ cabecera\ =\ nuevo;}
+\DoxyCodeLine{00080\ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ ListaDEnlazada<T>::insertaFin(\textcolor{keyword}{const}\ T\&\ dato)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}\ *nuevo;}
+\DoxyCodeLine{00085\ \ \ \ \ nuevo\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}(dato,\ \textcolor{keyword}{nullptr},\ cola);}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{if}\ (cabecera\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ cabecera\ =\ nuevo;}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{if}\ (cola\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ cola-\/>sig\ =\ nuevo;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ cola\ =\ nuevo;}
+\DoxyCodeLine{00091\ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00094\ \textcolor{keywordtype}{void}\ ListaDEnlazada<T>::inserta(\doxymbox{\hyperlink{class_iterador}{Iterador<T>}}\&\ i,\textcolor{keyword}{const}\ T\&\ dato)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}\ *p=i.nodo;}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{if}\ (p==0)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}ListaDEnlazada::inserta\ -\/>\ iterador\ no\ válido"{}});}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{if}\ (p==cabecera)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ insertaInicio(dato);}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}\ *nuevo;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ nuevo=\textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}(dato,p,p-\/>ant);}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ p-\/>ant-\/>sig=nuevo;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ p-\/>ant=nuevo;}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00111\ \textcolor{keywordtype}{void}\ ListaDEnlazada<T>::borraInicio()\{}
+\DoxyCodeLine{00112\ \ \ \ \ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}\ *borrado\ =\ cabecera;}
+\DoxyCodeLine{00113\ \ \ \ \ cabecera\ =\ cabecera-\/>sig;}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{delete}\ borrado;}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{if}\ (cabecera\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ cabecera-\/>ant\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ cola\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00119\ \}}
+\DoxyCodeLine{00120\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00121\ \textcolor{keywordtype}{void}\ ListaDEnlazada<T>::borraFin()\{}
+\DoxyCodeLine{00122\ \ \ \ \ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}\ *borrado\ =\ cola;}
+\DoxyCodeLine{00123\ \ \ \ \ cola\ =\ cola-\/>ant;}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{delete}\ borrado;}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{if}(cola!=\textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ cola-\/>sig\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ cabecera\ =\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00129\ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{void}\ ListaDEnlazada<T>::borra(\doxymbox{\hyperlink{class_iterador}{Iterador<T>}}\ \&i)\{}
+\DoxyCodeLine{00133\ \ \ \ \ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}*p=i.nodo;}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{if}\ (p\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Iterador\ nulo"{}});}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{if}\ (p\ ==\ cabecera)\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ borraInicio();}
+\DoxyCodeLine{00139\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (p\ ==\ cola)\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ borraFin();}
+\DoxyCodeLine{00141\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ p-\/>ant-\/>sig\ =\ p-\/>sig;}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ p-\/>sig-\/>ant\ =\ p-\/>ant;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ p;}
+\DoxyCodeLine{00145\ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \}}
+\DoxyCodeLine{00147\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00148\ \textcolor{keywordtype}{int}\ ListaDEnlazada<T>::tam()\{}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{int}\ tam=0;}
+\DoxyCodeLine{00150\ \ \ \ \ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}\ *nuevo=cabecera;}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{while}(nuevo!=\textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ nuevo=nuevo-\/>sig;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ tam++;}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordflow}{return}\ tam;}
+\DoxyCodeLine{00156\ \}}
+\DoxyCodeLine{00157\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00158\ \doxymbox{\hyperlink{class_lista_d_enlazada}{ListaDEnlazada<T>}}\&\ ListaDEnlazada<T>::concatena(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_lista_d_enlazada}{ListaDEnlazada<T>}}\ lista)\{}
+\DoxyCodeLine{00159\ \ \ \ \ \doxymbox{\hyperlink{class_lista_d_enlazada}{ListaDEnlazada<T>}}\ listafinal(\textcolor{keyword}{this});}
+\DoxyCodeLine{00160\ \ \ \ \ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}\ *actual\ =\ lista.cabecera;}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordflow}{while}(actual!=\textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ this-\/>insertaFin(actual-\/>dato);}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ actual\ =\ actual-\/>sig;}
+\DoxyCodeLine{00164\ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordflow}{return}\ listafinal;}
+\DoxyCodeLine{00166\ \}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00169\ ListaDEnlazada<T>::\string~ListaDEnlazada()\{}
+\DoxyCodeLine{00170\ \ \ \ \ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}\ *borrado;}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordflow}{while}\ (cabecera\ !=\ \textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ borrado=cabecera;}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ cabecera=cabecera-\/>sig;}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ borrado;}
+\DoxyCodeLine{00175\ \ \ \ \ \}}
+\DoxyCodeLine{00176\ \}}
+\DoxyCodeLine{00177\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00178\ \doxymbox{\hyperlink{class_iterador}{Iterador<T>}}\ \doxymbox{\hyperlink{class_lista_d_enlazada}{ListaDEnlazada<T>::\ iterador}}()\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}\ *nuevo;}
+\DoxyCodeLine{00180\ \ \ \ \ nuevo=cabecera;}
+\DoxyCodeLine{00181\ \ \ \ \ \doxymbox{\hyperlink{class_iterador}{Iterador<T>}}\ it(nuevo);}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00183\ \}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PRACTICA2\_LISTADENLAZADA\_H}}
+
+\end{DoxyCode}

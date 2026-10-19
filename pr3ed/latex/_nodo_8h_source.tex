@@ -1,0 +1,41 @@
+\doxysection{Nodo.\+h}
+\hypertarget{_nodo_8h_source}{}\label{_nodo_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Nitropc\ on\ 05/10/2026.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ PRACTICA2\_NODO\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ PRACTICA2\_NODO\_H}}
+\DoxyCodeLine{00007\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_lista_d_enlazada}{ListaDEnlazada}};}
+\DoxyCodeLine{00009\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }Nodo\{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ T\ dato;}
+\DoxyCodeLine{00013\ \ \ \ \ Nodo<T>\ *sig;}
+\DoxyCodeLine{00014\ \ \ \ \ Nodo<T>\ *ant;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_lista_d_enlazada}{ListaDEnlazada}}<T>;}
+\DoxyCodeLine{00017\ \ \ \ \ Nodo(\textcolor{keyword}{const}\ T\ \&dato,\ Nodo<T>\ *sig=\textcolor{keyword}{nullptr},Nodo<T>*ant=\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00018\ \ \ \ \ Nodo<T>\&\ operator=(\textcolor{keyword}{const}\ T\ \&nodo);}
+\DoxyCodeLine{00019\ \ \ \ \ \string~Nodo();}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00022\ \ \ \ \ Nodo<T>::Nodo(\textcolor{keyword}{const}\ T\ \&dato,\ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}\ *sig,\doxymbox{\hyperlink{class_nodo}{Nodo<T>}}*ant)\{}
+\DoxyCodeLine{00023\ \ \ \ \ this-\/>dato=dato;}
+\DoxyCodeLine{00024\ \ \ \ \ this-\/>sig=sig;}
+\DoxyCodeLine{00025\ \ \ \ \ this-\/>ant=ant;}
+\DoxyCodeLine{00026\ \}}
+\DoxyCodeLine{00027\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00028\ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}\&\ Nodo<T>::operator=(\textcolor{keyword}{const}\ T\ \&nodo)\{}
+\DoxyCodeLine{00029\ \ \ \ \ this-\/>dato=nodo.dato;}
+\DoxyCodeLine{00030\ \ \ \ \ this-\/>sig=nodo.sig;}
+\DoxyCodeLine{00031\ \ \ \ \ this-\/>ant=nodo.ant;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00033\ \}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00035\ \ \ \ \ Nodo<T>::\string~Nodo()\{\}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PRACTICA2\_NODO\_H}}
+
+\end{DoxyCode}

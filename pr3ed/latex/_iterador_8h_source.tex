@@ -1,0 +1,36 @@
+\doxysection{Iterador.\+h}
+\hypertarget{_iterador_8h_source}{}\label{_iterador_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Nitropc\ on\ 05/10/2026.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ PRACTICA2\_ITERADOR\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ PRACTICA2\_ITERADOR\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Nodo.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Iterador.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_lista_d_enlazada}{ListaDEnlazada}};}
+\DoxyCodeLine{00011\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }Iterador\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \doxymbox{\hyperlink{class_nodo}{Nodo<T>}}\ *nodo;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_lista_d_enlazada}{ListaDEnlazada}}<T>;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ Iterador(\doxymbox{\hyperlink{class_nodo}{Nodo<T>}}\ *aNodo)\ :\ nodo(aNodo)\ \{\}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ hayAnterior()\ \{\ \textcolor{keywordflow}{return}\ nodo\ !=\ \textcolor{keyword}{nullptr}\ \&\&\ nodo-\/>ant\ !=\ \textcolor{keyword}{nullptr};\ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ fin()\ \{\ \textcolor{keywordflow}{return}\ nodo\ ==\ \textcolor{keyword}{nullptr};\ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ anterior()\ \{\ nodo\ =\ nodo-\/>ant;\ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ avanza()\ \{\ nodo\ =\ nodo-\/>sig;\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ T\ \&getdato()\ \{\ \textcolor{keywordflow}{return}\ nodo-\/>dato;\ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \string~Iterador()\ =\textcolor{keywordflow}{default};}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PRACTICA2\_ITERADOR\_H}}
+
+\end{DoxyCode}
