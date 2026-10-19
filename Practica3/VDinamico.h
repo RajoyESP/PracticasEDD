@@ -17,10 +17,10 @@ private:
     unsigned int tamal;
     unsigned int tamaf;
     T *dato;
-    unsigned int calcularPotencia2(unsigned int tamaño) const {
-        if (tamaño == 0) return 1;
+    unsigned int calcularPotencia2(unsigned int tamano) const {
+        if (tamano == 0) return 1;
         unsigned int potencia = 1;
-        while (potencia < tamaño) {
+        while (potencia < tamano) {
             potencia *= 2;
         }
         return potencia;

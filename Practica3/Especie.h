@@ -2,8 +2,8 @@
 // Created by Portatil on 25/09/2026.
 //
 
-#ifndef PRÁCTICA_1_VECTOR_DINÁMICO_20260918_ESPECIE_H
-#define PRÁCTICA_1_VECTOR_DINÁMICO_20260918_ESPECIE_H
+#ifndef ESPECIE_H
+#define ESPECIE_H
 
 #include <string>
 #include <iostream>

@@ -4,7 +4,7 @@
 
 #ifndef PRACTICA2_LISTADENLAZADA_H
 #define PRACTICA2_LISTADENLAZADA_H
-#include <Nodo.h>
+#include "Nodo.h"
 
 #include "Iterador.h"
 template <class T>
