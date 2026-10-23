@@ -1,26 +1,26 @@
 //
 // Created by Nitropc on 23/10/2026.
 //
+
 #include "NodoA.h"
 #include <iostream>
 #include "VDinamico.h"
-using namespace std;
 
 #ifndef PRACTICA2_AVL_H
 #define PRACTICA2_AVL_H
 template <typename T>
 class Avl {
-    Nodo<T> *raiz;
+    NodoA<T> *raiz;
 private:
-    int inserta(Nodo<T>* &c, T &dato);
-    void rotDecha(Nodo<T>* &p);
-    void rotIzqda(Nodo<T>* &p);
+    int inserta(NodoA<T>* &c, T &dato);
+    void rotDecha(NodoA<T>* &p);
+    void rotIzqda(NodoA<T>* &p);
 public:
     Avl(): raiz(0) {}
     bool inserta(T &dato){ return inserta(raiz,dato); }
-    void preorden (Nodo<T> *p, int nivel);
-    Avl(const AVL<T> &origen);
-    void operator =(const AVL<T> &origen);
+    void preorden (NodoA<T> *p, int nivel);
+    Avl(const Avl<T> &origen);
+    void operator =(const Avl<T> &origen);
     T* buscaRec(T &dato);
     T* buscaIt(T &dato);
     void inordenAux(NodoA<T>* p, VDinamico<T*>& vector);
@@ -31,8 +31,8 @@ public:
     void eliminarposorden(NodoA<T>* &nodo);
 };
 template<typename T>
-void Avl<T>::rotIzqda(Nodo<T>* &p){
-    Nodo<T> *q = p, *r;
+void Avl<T>::rotIzqda(NodoA<T>* &p){
+    NodoA<T> *q = p, *r;
     p = r = q->der;
     q->der = r->izq;
     r->izq = q;
@@ -42,8 +42,8 @@ void Avl<T>::rotIzqda(Nodo<T>* &p){
     if(q->bal > 0) r->bal += q->bal; }
 
 template<typename T>
-void Avl<T>::rotDecha(Nodo<T>* &p){
-    Nodo<T> *q = p, *l;
+void Avl<T>::rotDecha(NodoA<T>* &p){
+    NodoA<T> *q = p, *l;
     p = l = q->izq;
     q->izq = l->der;
     l->der = q;
@@ -53,11 +53,11 @@ void Avl<T>::rotDecha(Nodo<T>* &p){
     if(q->bal < 0) l->bal -= -q->bal; }
 
 template<typename T>
-int Avl<T>::inserta(Nodo<T>* &c, T &dato){
-    Nodo<T> *p = c;
+int Avl<T>::inserta(NodoA<T>* &c, T &dato){
+    NodoA<T> *p = c;
     int deltaH = 0;
     if (!p){
-        p = new Nodo<T>(dato);
+        p = new NodoA<T>(dato);
         c = p; deltaH=1;
     }
     else if (dato > p->dato){
@@ -79,18 +79,18 @@ int Avl<T>::inserta(Nodo<T>* &c, T &dato){
     return deltaH;
 }
 template <class T>
-void Avl<T>::preorden (Nodo<T> *p, int nivel){
+void Avl<T>::preorden (NodoA<T> *p, int nivel){
     if (p){
         // Sustituir por procesamiento ---
-        cout << "Procesando nodo "<< p->dato ;
-        cout << "en el nivel " << nivel << endl;
+        std::cout << "Procesando nodo "<< p->dato ;
+        std::cout << "en el nivel " << nivel << endl;
         // -----------
         preorden (p->izq, nivel+1);
         preorden (p->der, nivel+1);
     }
 }
 template <class T>
-Avl<T>::Avl(const AVL<T> &origen) {
+Avl<T>::Avl(const Avl<T> &origen) {
     NodoA<T> *aux(origen.raiz);
     this->raiz = aux;
     inserta(raiz->der,raiz->der->dato);
@@ -98,7 +98,7 @@ Avl<T>::Avl(const AVL<T> &origen) {
 }
 
 template <class T>
-void Avl<T>::operator =(const AVL<T> &origen) {
+void Avl<T>::operator =(const Avl<T> &origen) {
     NodoA<T> *aux(origen.raiz);
     this->raiz = aux;
     inserta(raiz->der,raiz->der->dato);
@@ -123,7 +123,7 @@ T* Avl<T>::buscaIt(T &dato) {
     NodoA<T> *aux(this->raiz);
     while (aux!=nullptr) {
         if (aux->dato == dato) {
-            return &actual->dato;
+            return &aux->dato;
         }
         if (aux->dato > dato) {
             aux = aux->izq;

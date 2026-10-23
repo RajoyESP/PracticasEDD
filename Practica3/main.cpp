@@ -8,10 +8,10 @@
 #include <stdexcept>
 #include <string>
 
-#include "header/ControlParques.h"
-#include "header/Arbol.h"
-#include "header/Especie.h"
-#include "header/AVL.h"
+#include "ControlParques.h"
+#include "Arbol.h"
+#include "Especie.h"
+#include "AVL.h"
 
 using namespace std;
 
@@ -52,7 +52,7 @@ Arbol leerArbol(const std::string &linea)
         leerMedida(campos[11]));
 }
 
-void cargarAVL(const std::string &ruta, AVL<Arbol> &avl)
+void cargarAVL(const std::string &ruta, Avl<Arbol> &avl)
 {
     std::ifstream fichero(ruta);
 
@@ -111,7 +111,7 @@ int main()
 
         const std::string ruta = "./data/arboladoMadrid.csv";
 
-        AVL<Arbol> avl;
+        Avl<Arbol> avl;
         VDinamico<Arbol> arboles;
         VDinamico<std::string> identificadores;
 
@@ -125,9 +125,9 @@ int main()
                   << avl.numElementos() << '\n';
 
         std::cout << "Arboles en el vector: "
-                  << arboles.tamLog() << '\n';
+                  << arboles.tamlog() << '\n';
 
-        if (avl.numElementos() != arboles.tamLog())
+        if (avl.numElementos() != arboles.tamlog())
             throw std::runtime_error(
                 "Las estructuras contienen cantidades diferentes");
 
@@ -136,7 +136,7 @@ int main()
         const unsigned int numeroBusquedas = 500;
         const unsigned int salto = 250;
 
-        if (arboles.tamLog() <= (numeroBusquedas - 1) * salto)
+        if (arboles.tamlog() <= (numeroBusquedas - 1) * salto)
             throw std::runtime_error(
                 "No hay suficientes arboles para seleccionar la muestra");
 
@@ -175,7 +175,7 @@ int main()
 
         for (unsigned int i = 0; i < numeroBusquedas; ++i)
         {
-            for (unsigned int j = 0; j < arboles.tamLog(); ++j)
+            for (unsigned int j = 0; j < arboles.tamlog(); ++j)
             {
                 if (arboles[j] == claves[i])
                 {
@@ -227,12 +227,12 @@ int main()
                   << avl.altura() << '\n';
 
         // 8. Mostrar los 100 primeros árboles en inorden.
-        VDinamico<Arbol *> ordenados = avl.recorreInorden();
+        VDinamico<Arbol *> ordenados = avl.recorreinorden();
 
         std::cout << "\nPrimeros 100 arboles en inorden:\n";
 
         for (unsigned int i = 0;
-             i < 100 && i < ordenados.tamLog(); ++i)
+             i < 100 && i < ordenados.tamlog(); ++i)
         {
             Arbol *arbol = ordenados[i];
 
@@ -280,10 +280,10 @@ int main()
             control.listaArbParque("JARDINES DEL BUEN RETIRO");
 
         std::cout << "Numero de arboles: "
-                  << arbolesRetiro.tamLog() << '\n';
+                  << arbolesRetiro.tamlog() << '\n';
 
         for (unsigned int i = 0;
-             i < 10 && i < arbolesRetiro.tamLog(); ++i)
+             i < 10 && i < arbolesRetiro.tamlog(); ++i)
         {
             Arbol *arbol = arbolesRetiro[i];
 
@@ -301,7 +301,7 @@ int main()
         unsigned int correctos = 0;
 
         for (unsigned int i = 0;
-             i < 10 && i < arbolesRetiro.tamLog(); ++i)
+             i < 10 && i < arbolesRetiro.tamlog(); ++i)
         {
             Arbol *listado = arbolesRetiro[i];
             Arbol *encontrado = control.buscarArbol(listado->getAssetnum());
@@ -425,10 +425,10 @@ int main()
             control.buscarArbolesRango("5700000", "5709999");
 
         std::cout << "Numero de arboles encontrados: "
-                  << resultadoRango.tamLog() << '\n';
+                  << resultadoRango.tamlog() << '\n';
 
         for (unsigned int i = 0;
-             i < 10 && i < resultadoRango.tamLog(); ++i)
+             i < 10 && i < resultadoRango.tamlog(); ++i)
         {
             Arbol *arbol = resultadoRango[i];
 
