@@ -3,6 +3,8 @@
 
 #include <string>
 #include "Especie.h"
+#include "AVL.h"
+#include "VDinamico.h"
 
 class Arbol {
     private:
@@ -18,12 +20,14 @@ class Arbol {
         double _Y;
         float _perimetro;
         float _altura;
+        Avl<Especie> especie;
 
     public:
-        Arbol(std::string assetnum, int num_parque, int num_distrito, std::string nbre_distrito, int num_barrio, std::string nbre_barrio, double X, double Y, float perimetro, float altura);
-        Especie setEspecie(const Especie& e);
-        std::string getCodigoEspecie() const;
-        std::string getTipoEspecie() const;
-        std::string getNbreComun() const;
-}
+        Arbol(){}
+        Arbol(const std::string assetnum, int num_parque, int num_distrito, const std::string nbre_distrito, int num_barrio, const std::string nbre_barrio, double X, double Y, float perimetro, float altura);
+        bool setEspecie(Especie &e);
+        std::string getCodigoEspecie();
+        std::string getTipoEspecie();
+        std::string getNbreComun();
+};
 #endif // PRACTICA3_ARBOL_H
