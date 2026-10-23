@@ -23,3 +23,11 @@ std::string Arbol::getTipoEspecie() {
     }
     return "";
 }
+
+std::string Arbol::getNbreComun() {
+    if (especie.numElementos() > 0) {
+        Especie esp = *(especie.recorreinorden()[0]);
+        return esp.get_nombre_comun();
+    }
+    return "";
+}
