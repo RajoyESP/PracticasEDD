@@ -11,21 +11,21 @@ std::string Arbol::getCodEspecie() {
     if (_especie!=nullptr) {
         return _especie->get_codigo_especie();
     }
-    return "No tiene especie asociada";
+    return 0;
 }
 
 std::string Arbol::getTipoEspecie() {
     if (_especie!=nullptr) {
         return _especie->tipoPlantaATexto(_especie->get_tipo_planta());
     }
-    return "No tiene especie asociada";
+    return 0;
 }
 
 std::string Arbol::getNbreComun() {
     if (_especie!=nullptr) {
         return _especie->get_nombre_comun();
     }
-    return "No tiene especie asociada";
+    return 0;
 }
 
 bool Arbol::operator==(const Arbol &otro) const {
