@@ -1,33 +1,49 @@
 #include "Arbol.h"
-#include "AVL.h"
 
 Arbol::Arbol(const std::string assetnum, int num_parque, int num_distrito, const std::string nbre_distrito, int num_barrio, const std::string nbre_barrio, double X, double Y, float perimetro, float altura)
-    : _assetnum(assetnum), _num_parque(num_parque), _num_distrito(num_distrito), _nbre_distrito(nbre_distrito), _num_barrio(num_barrio), _nbre_barrio(nbre_barrio), _X(X), _Y(Y), _perimetro(perimetro), _altura(altura) {}
+    : _assetnum(assetnum), _num_parque(num_parque), _num_distrito(num_distrito), _nbre_distrito(nbre_distrito), _num_barrio(num_barrio), _nbre_barrio(nbre_barrio), _X(X), _Y(Y), _perimetro(perimetro), _altura(altura), _especie(nullptr) {}
 
-bool Arbol::setEspecie(Especie &e) {
-    return especie.inserta(e);
+void Arbol::setEspecie(Especie &e) {
+    _especie = &e;
 }
 
-std::string Arbol::getCodigoEspecie() {
-    if (especie.numElementos() > 0) {
-        Especie esp = *(especie.recorreinorden()[0]);
-        return esp.get_codigo_especie();
+std::string Arbol::getCodEspecie() {
+    if (_especie!=nullptr) {
+        return _especie->get_codigo_especie();
     }
-    return "";
+    return "No tiene especie asociada";
 }
 
 std::string Arbol::getTipoEspecie() {
-    if (especie.numElementos() > 0) {
-        Especie esp = *(especie.recorreinorden()[0]);
-        return esp.tipoPlantaATexto(esp.get_tipo_planta());
+    if (_especie!=nullptr) {
+        return _especie->tipoPlantaATexto(_especie->get_tipo_planta());
     }
-    return "";
+    return "No tiene especie asociada";
 }
 
 std::string Arbol::getNbreComun() {
-    if (especie.numElementos() > 0) {
-        Especie esp = *(especie.recorreinorden()[0]);
-        return esp.get_nombre_comun();
+    if (_especie!=nullptr) {
+        return _especie->get_nombre_comun();
     }
-    return "";
+    return "No tiene especie asociada";
+}
+
+bool Arbol::operator==(const Arbol &otro) const {
+    return _assetnum == otro._assetnum;
+}
+
+bool Arbol::operator<(const Arbol &otro) const {
+    return _assetnum < otro._assetnum;
+}
+
+bool Arbol::operator>(const Arbol &otro) const {
+    return _assetnum > otro._assetnum;
+}
+
+std::string Arbol::getAssetnum() const {
+    return _assetnum;
+}
+
+float Arbol::getAltura() const {
+    return _altura;
 }

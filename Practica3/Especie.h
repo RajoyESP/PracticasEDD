@@ -85,6 +85,13 @@ public:
         return false;
     }
 
+    bool operator>(Especie &e) {
+        if (_cod_especie > e.get_codigo_especie()) {
+            return true;
+        }
+        return false;
+    }
+
     void mostrarInfo() {
         std::cout<<"Codigo especie: "<<_cod_especie<<std::endl;
         std::cout<<"Nombre especie: "<<_nbre_comun<<std::endl;

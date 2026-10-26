@@ -6,25 +6,29 @@
 #define PRACTICA2_PARQUE_H
 
 #include <string>
-#include "Especie.h"
 #include "VDinamico.h"
+#include "Arbol.h"
 
 class Parque {
 private:
     int _cod_parque;
     std::string _nbre_parque;
-    VDinamico<Especie*> vEspecies;
+    VDinamico<Arbol*> vArboles;
 public:
     Parque();
     Parque(int cod_parque, std::string nbre_parque);
-    void insertaEspecie(Especie *esp);
+
+    void insertarArbol(Arbol *arb);
+    Arbol* arbolMasAlto();
+    int contarEspecies();
+    int contarTipos();
+
     bool existeNbreCom(std::string ncomun);
-    bool existeNbreCie(std::string ncient);
     int get_cod_parque();
     std::string get_nbre_parque();
     void set_nbre_parque(std::string const nbre_parque);
     void set_cod_parque(int const cod_parque);
-    VDinamico<Especie*> &get_contains();
+    VDinamico<Arbol*> &get_contains();
 };
 
 

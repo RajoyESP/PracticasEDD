@@ -123,7 +123,7 @@ T* Avl<T>::buscaIt(T &dato) {
     NodoA<T> *aux(this->raiz);
     while (aux!=nullptr) {
         if (aux->dato == dato) {
-            return &aux->dato;
+            return &(aux->dato);
         }
         if (aux->dato > dato) {
             aux = aux->izq;
